@@ -1,0 +1,479 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Fredoka One', cursive, sans-serif;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    background-color: #fff5e6;
+    background-image:
+      radial-gradient(circle at 10% 20%, #ff9a9e 6%, transparent 0%),
+      radial-gradient(circle at 80% 80%, #fad0c4 7%, transparent 0%),
+      radial-gradient(circle at 50% 50%, #fbc2eb 8%, transparent 0%),
+      radial-gradient(circle at 90% 30%, #a1c4fd 9%, transparent 0%),
+      radial-gradient(circle at 30% 70%, #c2e9fb 10%, transparent 0%),
+      radial-gradient(circle at 70% 20%, #ffb347 7%, transparent 0%),
+      radial-gradient(circle at 20% 80%, #ffcc33 8%, transparent 0%),
+      radial-gradient(circle at 60% 60%, #c6ffdd 7%, transparent 0%),
+      radial-gradient(circle at 40% 40%, #fbd786 6%, transparent 0%);
+    background-size: cover;
+}
+
+#app {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    padding: 40px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+h1, h2 {
+    color: #ff6f61;
+    font-weight: 700;
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.8em;
+    color: #ff6f61;
+}
+
+button {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 20px 35px;
+    margin: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 0 #d3544e;
+}
+
+button:hover {
+    background-color: #ff867c;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 0 #d3544e;
+}
+
+button:focus {
+    outline: 3px solid #ffcc33;
+}
+
+.level-button.completed {
+    background-color: #4caf50;
+    box-shadow: 0 5px 0 #388e3c;
+}
+
+.level-button.completed:hover {
+    background-color: #66bb6a;
+    box-shadow: 0 10px 0 #388e3c;
+}
+
+input[type="text"], input[type="password"] {
+    width: calc(100% - 30px);
+    padding: 15px;
+    margin: 10px 0;
+    border: 3px solid #ff6f61;
+    border-radius: 10px;
+    font-size: 22px;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: #ffcc33;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+#intro-image {
+    width: 250px;
+    height: auto;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.hidden {
+    display: none;
+}
+
+#level-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.images-container, .words-container {
+    width: 45%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.level-item {
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #fff0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 0 #d3544e;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.level-item:hover {
+    background-color: #ffe5e5;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 0 #d3544e;
+}
+
+.level-item:focus {
+    outline: 3px solid #ffcc33;
+}
+
+.level-item.selected {
+    border: 3px solid #ffcc33;
+}
+
+.level-item img {
+    width: 80px;
+    height: 80px;
+}
+
+.level-word {
+    font-size: 1.4em;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.badge-category {
+    margin-top: 20px;
+}
+
+.badge-category h3 {
+    color: #ff6f61;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.badge-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.badge {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    line-height: 1.2;
+    font-size: 14px;
+    text-transform: uppercase;
+    border: 2px solid #333;
+    overflow: hidden;
+    padding: 5px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.badge.beginner {
+    background: linear-gradient(135deg, #ffe0b2, #ffcc80);
+    color: #333;
+}
+
+.badge.bronze {
+    background: linear-gradient(135deg, #cd7f32, #b87333);
+    color: white;
+}
+
+.badge.silver {
+    background: linear-gradient(135deg, #c0c0c0, #dcdcdc);
+    color: #333;
+}
+
+.badge.gold {
+    background: linear-gradient(135deg, #ffd700, #ffb700);
+    color: #333;
+}
+
+.badge-name {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+#categories button {
+    display: block;
+    width: calc(100% - 40px);
+    margin: 10px auto;
+}
+
+#profile-info {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #555;
+}
+
+#progress-dashboard {
+    margin-top: 20px;
+}
+
+#progress-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.progress-category-button {
+    background-color: #ffcc33;
+    box-shadow: 0 5px 0 #d4a30d;
+}
+
+.progress-category-button:hover {
+    background-color: #ffd54f;
+    box-shadow: 0 10px 0 #d4a30d;
+}
+
+#progress-stats {
+    font-size: 1.2em;
+    text-align: left;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+#progress-stats ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#progress-stats li {
+    margin-bottom: 10px;
+}
+
+.back-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 0 #388e3c;
+}
+
+.back-button:hover {
+    background-color: #66bb6a;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 0 #388e3c;
+}
+
+.back-button:focus {
+    outline: 3px solid #ffcc33;
+}
+
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #2196f3;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50%;
+    z-index: 1000;
+    cursor: pointer;
+    font-size: 1.5em;
+    text-align: center;
+    line-height: 1em;
+    width: 60px;
+    height: 60px;
+    display: none;
+    box-shadow: 0 5px 0 #1976d2;
+}
+
+.home-button:hover {
+    background-color: #42a5f5;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 0 #1976d2;
+}
+
+.home-button:focus {
+    outline: 3px solid #ffcc33;
+}
+
+#intro-message, #level-message {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #ff6f61;
+}
+
+#go-to-levels-button {
+    margin-top: 20px;
+}
+
+#level-back-to-levels-button {
+    margin-top: 10px;
+}
+
+#high-scores-list {
+    margin-top: 20px;
+}
+
+#high-scores-list ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.4em;
+}
+
+#high-scores-list li {
+    margin: 10px 0;
+}
+
+#high-scores-list li a {
+    color: #ff6f61;
+    text-decoration: none;
+}
+
+#high-scores-list li a:hover {
+    text-decoration: underline;
+}
+
+#badge-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff5e6;
+    border: 3px solid #ff6f61;
+    border-radius: 20px;
+    padding: 20px;
+    z-index: 2000;
+    max-width: 600px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+#badge-popup h2 {
+    margin-top: 0;
+}
+
+#badge-popup-close-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 0 #388e3c;
+}
+
+#badge-popup-close-button:hover {
+    background-color: #66bb6a;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 0 #388e3c;
+}
+
+#badge-popup-close-button:focus {
+    outline: 3px solid #ffcc33;
+}
+
+#intro-hint {
+    font-size: 1.5em;
+    color: #555;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    button {
+        font-size: 20px;
+        padding: 15px 30px;
+    }
+
+    input[type="text"], input[type="password"] {
+        font-size: 18px;
+    }
+
+    .home-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2em;
+    }
+
+    #level-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .images-container, .words-container {
+        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .level-item {
+        width: 80px;
+        height: 80px;
+    }
+
+    .level-item img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .badge {
+        width: 80px;
+        height: 80px;
+        font-size: 12px;
+    }
+
+    .badge-name {
+        font-size: 12px;
+    }
+}

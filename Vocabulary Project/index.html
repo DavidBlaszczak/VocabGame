@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vocabulary Learning Application for Kids</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+   
+    <link rel="stylesheet" href="styles.css">
+  
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div id="app">
+       
+        <div id="login-section">
+            <h1>Login</h1>
+            <form id="login-form">
+                <label for="login-username">Username:</label>
+                <input type="text" id="login-username" placeholder="Enter your username" required>
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" placeholder="Enter your password" required>
+                <button type="submit" id="login-button">Login</button>
+            </form>
+            <p id="login-message"></p>
+            <button id="to-register-button">Register</button>
+        </div>
+
+      
+        <div id="register-section" class="hidden">
+            <h1>Register</h1>
+            <form id="register-form">
+                <label for="register-username">Username:</label>
+                <input type="text" id="register-username" placeholder="Choose a username" required>
+                <label for="register-password">Password:</label>
+                <input type="password" id="register-password" placeholder="Choose a password" required>
+                <button type="submit" id="register-button">Register</button>
+            </form>
+            <p id="register-message"></p>
+            <button id="to-login-button">Back to Login</button>
+        </div>
+
+       
+        <div id="main-menu" class="hidden">
+            <h1>Welcome to the Vocabulary Learning App!</h1>
+            <button id="play-button">Play</button>
+            <button id="high-scores-button">High Scores</button>
+            <button id="profile-button">My Profile</button>
+            <button id="logout-button">Logout</button>
+        </div>
+
+        
+        <div id="categories" class="hidden">
+            <h2>Select a Category</h2>
+            <button id="animals-category-button">Animals</button>
+            
+            <button id="back-to-main-menu-button" class="back-button">Back</button>
+        </div>
+
+       
+        <div id="levels" class="hidden">
+            <h2>Animals</h2>
+            <button id="introduction-btn" class="level-button">Introduction</button>
+            <button id="easy-btn" class="level-button hidden">Easy: Match 4 Pairs</button>
+            <button id="medium-btn" class="level-button hidden">Medium: Match 8 Pairs</button>
+            <button id="hard-btn" class="level-button hidden">Hard: Match 12 Pairs</button>
+            <button id="back-to-categories-button" class="back-button">Back</button>
+        </div>
+
+      
+        <div id="introduction" class="hidden">
+            <h2>Introduction</h2>
+            <img id="intro-image" src="" alt="Animal Image">
+            <p id="animal-name"></p>
+            <input type="text" id="animal-input" placeholder="Type the animal name" aria-label="Animal Name Input">
+            <button id="intro-submit-button">Submit</button>
+            <button id="intro-hint-button">Hint</button>
+            <p id="intro-message"></p>
+          
+            <p id="intro-hint"></p>
+          
+            <button id="go-to-levels-button" class="hidden">Go to Levels</button>
+        </div>
+
+       
+        <div id="level" class="hidden">
+            <h2 id="level-title"></h2>
+            <div id="level-container">
+              
+                <div id="images-container" class="images-container"></div>
+                <div id="words-container" class="words-container"></div>
+            </div>
+            <p id="level-message"></p>
+        
+            <button id="level-back-to-levels-button" class="hidden">Return to Levels</button>
+        </div>
+
+     
+        <div id="high-scores" class="hidden">
+            <h2>High Scores</h2>
+            <div id="high-scores-list">
+          
+            </div>
+            <button id="high-scores-back-button" class="back-button">Back to Main Menu</button>
+        </div>
+
+       
+        <div id="badge-popup" class="hidden">
+            <h2 id="badge-popup-title"></h2>
+            <div id="badge-popup-content">
+            
+            </div>
+            <button id="badge-popup-close-button">Close</button>
+        </div>
+
+      
+        <div id="profile" class="hidden">
+            <h2>My Profile</h2>
+            <p id="profile-info"></p>
+           
+            <div id="progress-dashboard">
+                <h3>Your Progress</h3>
+                <div id="progress-categories">
+                   
+                </div>
+                <div id="progress-stats">
+                   
+                </div>
+            </div>
+            <div id="badge-container">
+                
+            </div>
+            <button id="profile-back-button" class="back-button">Back</button>
+        </div>
+    </div>
+
+    
+    <button id="home-button" class="home-button" aria-label="Home">🏠</button>
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
